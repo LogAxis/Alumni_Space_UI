@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Network-like Interface</title>
+  <link rel="stylesheet" type="text/css" href=styleUrls>
+</head>
+<body>
+  <header class="header">
+    <div id="logo">
+      <img src="images/mynetwork_logo.png" alt="My Network Logo">
+    </div>
+    <div class="menu">
+      <ul>
+        <li>Home</li>
+        <li>Connections</li>
+        <li>Messages</li>
+        <li>Profile</li>
+        <!-- Add more menu items as needed -->
+      </ul>
+    </div>
+    <div class="search">
+      <input type="text" placeholder="Search">
+    </div>
+  </header>
+
+  <nav class="sidebar">
+    <!-- Sidebar content (same as the image upload page) -->
+  </nav>
+<div class="content-wrapper">
+ <aside class="right-sidebar">
+    <div class="right-sidebar-content">
+      <h2>My Network</h2>
+
+      <ul class="right-sidebar-links">
+        <li><a href="https://example.com" target="_blank">Feedback</a></li>
+        <li><a href="https://another-example.com" target="_blank">Ask Me</a></li>
+        <!-- Add more hyperlinks as needed -->
+      </ul>
+    </div>
+  </aside>
+<main class="main-content">
+      <div class="content-container">
+
+	 <section class="user-profile">
+    <div class="user-avatar">
+      <img src="images/user-avatar.jpg" alt="User Avatar" class="avatar-image">
+    </div>
+    <div class="user-info">
+      <h2><a href="#" class="user-name">John Doe</a></h2>
+      <p class="user-description">Short description about the user.</p>
+    </div>
+  </section>
+
+	 <div class="story-container">
+        <!-- Add a "View Stories" button to navigate to a separate page -->
+        <a href="add_story.html" class="add-story-button">
+            <span>+</span>
+            <span>Add Story</span>
+        </a>
+        <!-- Add 5 story placeholders with usernames -->
+        <div class="story-profile">
+            <img src="profile1.jpg" alt="User 1">
+            <div class="story-username">User 1</div>
+        </div>
+        <div class="story-profile">
+            <img src="profile2.jpg" alt="User 2">
+            <div class="story-username">User 2</div>
+        </div>
+        <div class="story-profile">
+            <img src="profile3.jpg" alt="User 3">
+            <div class="story-username">User 3</div>
+        </div>
+        <div class="story-profile">
+            <img src="profile4.jpg" alt="User 4">
+            <div class="story-username">User 4</div>
+        </div>
+        <div class="story-profile">
+            <img src="profile5.jpg" alt="User 5">
+            <div class="story-username">User 5</div>
+        </div>
+    </div>
+
+        <!-- Post Submission Form -->
+        <form id="post-form" class="post-form" enctype="multipart/form-data">
+          <textarea id="post-content" class="post-content" placeholder="Share an update..."></textarea>
+          <a href="Post-image.html" class="post-image-link">Add Image</a>
+          <button type="submit" class="submit-button">Post</button>
+        </form>
+
+        <!-- Display Posts -->
+        <div id="post-list" class="post-list">
+          <!-- Post 1 -->
+  <div class="post">
+    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+ 
+ 	    <!-- Add like, comment, and share buttons -->
+    <div class="post-actions">
+      <button class="like-button">Like</button>
+      <button class="comment-button">Comment</button>
+      <button class="share-button">Share</button>
+    </div>  
+
+	<!-- Add a space for comments -->
+    <div class="comment-section">
+      <input type="text" class="comment-input" placeholder="Add a comment...">
+      <button class="comment-button">Comment</button>
+      <div class="comments">
+        <!-- Comments will be displayed here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Post 2 (You can repeat this structure for more posts) -->
+  <div class="post">
+    <!-- Post content goes here -->
+<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+   <img src="images/448037132.jpg" class="post img">
+	    <!-- Add like, comment, and share buttons -->
+    <div class="post-actions">
+      <button class="like-button">Like</button>
+      <button class="comment-button">Comment</button>
+      <button class="share-button">Share</button>
+    </div>
+
+	 <!-- Add a space for comments -->
+    <div class="comment-section">
+      <input type="text" class="comment-input" placeholder="Add a comment...">
+      <button class="comment-button">Comment</button>
+      <div class="comments">
+        <!-- Comments will be displayed here -->
+      </div>
+    </div>
+  </div>
+        </div>
+      </div>
+    </main>
+
+  <aside class="right-sidebar">
+  <div class="right-sidebar-content">
+    <h2>Groups</h2>
+    <ul class="right-sidebar-links">
+      <li>
+        <div class="group-item">
+          <img src="group1.jpg" alt="Group 1" class="group-avatar">
+          <h3><a href="#" class="group-name">Group 1</a></h3>
+        </div>
+      </li>
+      <li>
+        <div class="group-item">
+          <img src="group2.jpg" alt="Group 2" class="group-avatar">
+          <h3><a href="#" class="group-name">Group 2</a></h3>
+        </div>
+      </li>
+      <!-- Add more group items as needed -->
+    </ul>
+  </div>
+</aside>
+
+</div>
+
+  <footer class="footer">
+    <!-- Footer content (same as the image upload page) -->
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
