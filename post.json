@@ -1,0 +1,33 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "name": "Kabelo Axis",
+      "imageUrl": "",
+      "postData": "post tesing",
+      "dateTime": "2023-11-03T11:12:32.721Z",
+      "id": 2
+    },
+    {
+      "name": "Kabelo Axis",
+      "imageUrl": "",
+      "postData": "testing*",
+      "dateTime": "2023-11-03T11:12:55.120Z",
+      "id": 3
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
