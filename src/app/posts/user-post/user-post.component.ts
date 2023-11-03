@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
 
 
 interface PostInfo{
@@ -17,21 +19,19 @@ interface PostInfo{
   styleUrls: ['./user-post.component.css']
 })
 export class UserPostComponent {
-  post_id = [1,2,3,4]
-  posts: { [id: string]: PostInfo } = { 
-    "post_info":{ user_name: "Sinenhlanhla Masuku",
-        user_postion: "Web Developer",
-        institution: "Tshwane University Of Technology",
-        user_image: "assets/Sneh.jpg",
-        post_time: "2hr",
-        text_message: "I'm thrilled to share that I've completed a graduate certificate course in project management with the president's honor roll.",
-        image_message: "assets/Sneh.jpg"},
-   "post_info2":{ user_name: "Thoko Masanabo",
-        user_postion: "Fullstack Developer",
-        institution: "Tshwane University Of Technology",
-        user_image: "assets/Sneh.jpg",
-        post_time: "2hr",
-        text_message: "I'm thrilled to share that I've completed a graduate certificate course in project management with the president's honor roll.",
-        image_message: "assets/Sneh.jpg"}
-         }
+
+  posts: any[] = [];
+
+  constructor(private http: HttpClient) {}
+
+  ngOnInit() {
+    this.getPosts();
+  }
+
+  getPosts() {
+    this.http.get<any>('http://localhost:3000/posts').subscribe(response => {
+      this.posts = response.reverse();
+    });
+  }
+
 }
