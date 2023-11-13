@@ -34,7 +34,9 @@ import { YourThoughtsComponent } from './posts/your-thoughts/your-thoughts.compo
     UserProfileInfoComponent,
     UserStorysComponent,
     WhoToFollowComponent,
-    YourThoughtsComponent
+    YourThoughtsComponent,
+    ImagepostComponent,
+    ImagediplayComponent
     
 
 
