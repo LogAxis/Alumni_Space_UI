@@ -46,7 +46,7 @@ import { YourThoughtsComponent } from './posts/your-thoughts/your-thoughts.compo
      HttpClientModule,// Add HttpClientModule
    
      FormsModule,
-    
+     //- ReactiveFormsModule
     //  AuthorsComponent
     
   ],
