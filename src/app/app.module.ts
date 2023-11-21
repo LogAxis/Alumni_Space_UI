@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 //import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { FormsModule } from '@angular/forms'; // Import FormsModule
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // Import FormsModule
 import { HttpClientModule } from '@angular/common/http'; // Import HttpClientModule
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +16,10 @@ import { UserProfileInfoComponent } from './posts/user-profile-info/user-profile
 import { UserStorysComponent } from './posts/user-storys/user-storys.component';
 import { WhoToFollowComponent } from './posts/who-to-follow/who-to-follow.component';
 import { YourThoughtsComponent } from './posts/your-thoughts/your-thoughts.component';
+import { ImagepostComponent } from './posts/imagepost/imagepost.component';
+import { ImagediplayComponent } from './posts/imagediplay/imagediplay.component';
+import { ImageInputComponent } from './image-input/image-input.component';
+import { ImageDisplayComponent } from './image-display/image-display.component';
 // import {  } from '@fortawesome/fontawesome-free-solid';
 
 
@@ -36,19 +40,17 @@ import { YourThoughtsComponent } from './posts/your-thoughts/your-thoughts.compo
     WhoToFollowComponent,
     YourThoughtsComponent,
     ImagepostComponent,
-    ImagediplayComponent
-    
-
+    ImagediplayComponent,
+    ImageInputComponent,
+    ImageDisplayComponent
 
   ],
     imports: [
     BrowserModule,
     AppRoutingModule,
-    
-     HttpClientModule,// Add HttpClientModule
-   
-     FormsModule,
-     //- ReactiveFormsModule
+    HttpClientModule,// Add HttpClientModule
+    FormsModule,
+    ReactiveFormsModule
     //  AuthorsComponent
     
   ],

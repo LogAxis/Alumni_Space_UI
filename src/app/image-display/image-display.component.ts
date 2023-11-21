@@ -1,20 +1,26 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { EventService } from 'src/service';
 
-
 @Component({
-  selector: 'app-imagediplay',
-  templateUrl: './imagediplay.component.html',
-  styleUrls: ['./imagediplay.component.css']
+  selector: 'app-image-display',
+  templateUrl: './image-display.component.html',
+  styleUrls: ['./image-display.component.css']
 })
-export class ImagediplayComponent {
+export class ImageDisplayComponent {
 
+  posts=[];
+  newPost:any ={name:'', imageUrl:'',postData:'',dateTime:''};
+  
   eventForm!: FormGroup;
   imageFile: File | null = null;
   showModal = false;
+  events: any[] = [];
+  currentDate: Date = new Date();
+  
 
-  constructor(private service: EventService, private fb: FormBuilder) {
+  constructor(private service: EventService, private fb: FormBuilder,private http:HttpClient) {
     this.eventForm = this.fb.group({
       eventTitle: [''],
       eventDescription: [''],
@@ -24,16 +30,23 @@ export class ImagediplayComponent {
   }
 
   
-  postEvent() {
-    const event = {
+  onPost() {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+
+    const event:any = {
       title: this.eventForm.get('eventTitle')?.value,
       description: this.eventForm.get('eventDescription')?.value,
       image: this.imageFile,
+
     };
-   // this.service.addEvent(event);
+    this.http.post<any>('http://localhost:3000/posts',event,{headers}).subscribe(response =>{
+    this.service.getEvents();
+    this.service.addEvent(event);
     this.eventForm.reset();
     this.imageFile = null;
     this.showModal = true;
+    })
+
   }
 
   closeModal() {
@@ -54,8 +67,13 @@ export class ImagediplayComponent {
     }
   }
 
-  events: any[] = [];
-  currentDate: Date = new Date();
+  getPosts() {
+    this.http.get<any>('http://localhost:3000/posts').subscribe(response => {
+      this.posts = response;
+    });
+  }
+
+
 
  
 
@@ -102,6 +120,5 @@ export class ImagediplayComponent {
   }
 
  
-  
-
 }
+ 

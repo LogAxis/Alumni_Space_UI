@@ -20,7 +20,6 @@ getPosts() {
     this.posts = response;
   });
 }
-
 onSubmit() {
   const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
   this.newPost.name ='Kabelo Axis';
@@ -29,5 +28,6 @@ onSubmit() {
     this.getPosts(); // Refresh the posts after a new post is created
     this.newPost = { name:'', imageUrl:'',postData:'',timeDate: ''}; // Reset the new post object
   });
+
 }
 }

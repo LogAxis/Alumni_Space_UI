@@ -38,6 +38,16 @@ export class AppComponent {
       this.fullname = '';
     });
   }
+
+  selectedImage: { url: string; description: string; } | undefined ;
+
+  onImageSelected(imageData: { file: File; description: string }) {
+    // In a real application, you might want to upload the file to a server
+    // and get the URL. For simplicity, we'll create a local URL here.
+    const imageUrl = URL.createObjectURL(imageData.file);
+
+    this.selectedImage = { url: imageUrl, description: imageData.description };
+  }
 }
 
 const storedTheme: string | null = localStorage.getItem('theme')

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EventService } from '../service';
+import { EventService } from 'src/service';
 
 @Component({
   selector: 'app-imagepost',

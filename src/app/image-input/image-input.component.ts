@@ -1,32 +1,16 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { EventService } from 'src/service';
 
-
-
-interface PostInfo{
-        user_name: string;
-        user_postion: string;
-        institution: string;
-        user_image: string;
-        post_time:string;
-        text_message:string;
-        image_message: string;
-}
-
 @Component({
-  selector: 'app-user-post',
-  templateUrl: './user-post.component.html',
-  styleUrls: ['./user-post.component.css']
+  selector: 'app-image-input',
+  templateUrl: './image-input.component.html',
+  styleUrls: ['./image-input.component.css']
 })
-export class UserPostComponent {
-
-  posts: any[] = [];
+export class ImageInputComponent {
   events: any[] = [];
   currentDate: Date = new Date();
 
-
-  constructor(private service: EventService, private http:HttpClient) {
+  constructor(private service: EventService) {
     this.events = this.service.getEvents();
   }
 
@@ -49,17 +33,4 @@ export class UserPostComponent {
       return ` a few seconds ago`;
     }
   }
-
-
- 
-  ngOnInit() {
-    this.getPosts();
-  }
-
-  getPosts() {
-    this.http.get<any>('http://localhost:3000/posts').subscribe(response => {
-      this.posts = response.reverse();
-    });
-  }
-
 }
