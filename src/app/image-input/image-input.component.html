@@ -1,0 +1,12 @@
+<p>image-input works!</p>
+
+<div *ngFor="let event of events" class="event-item user-post">
+    <div class="event-details post-content">
+     <p class="post-text">{{ event.description }}</p>
+ 
+     <img [src]="event.image" alt="{{ event.title }}" style="max-width: 200px; height: 200px;">
+             
+         </div>
+     <p class="post-text">{{ currentDate | date:'fullDate' }} ({{ getTimeDifference(event.datePosted) }})</p>
+     
+ </div>
