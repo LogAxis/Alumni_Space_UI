@@ -16,7 +16,7 @@
     <ul>
     <li *ngFor="let post of posts">
         <div class="user-profile">
-            <img class="user-avatar" src="path_to_user_avatar.jpg" alt="User Avatar">
+            <img class="user-avatar" src={{post.avater}} alt="User Avatar">
             <div class="user-name">{{post.name}}</div>
             
           </div>
