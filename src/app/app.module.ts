@@ -20,6 +20,8 @@ import { ImagepostComponent } from './posts/imagepost/imagepost.component';
 import { ImagediplayComponent } from './posts/imagediplay/imagediplay.component';
 import { ImageInputComponent } from './image-input/image-input.component';
 import { ImageDisplayComponent } from './image-display/image-display.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
 // import {  } from '@fortawesome/fontawesome-free-solid';
 
 
@@ -50,8 +52,10 @@ import { ImageDisplayComponent } from './image-display/image-display.component';
     AppRoutingModule,
     HttpClientModule,// Add HttpClientModule
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
     //  AuthorsComponent
+    MatDialogModule
     
   ],
   providers: [],

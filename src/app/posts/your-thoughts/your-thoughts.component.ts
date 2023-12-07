@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http'
+import { MatDialog } from '@angular/material/dialog';
+import { ImageDisplayComponent } from 'src/app/image-display/image-display.component';
  
 @Component({
   selector: 'app-your-thoughts',
@@ -12,7 +14,7 @@ export class YourThoughtsComponent {
   posts=[];
   newPost:any ={name:'', imageUrl:'',postData:'',dateTime:''};
   postData: string = '';
-  constructor(private http:HttpClient){}
+  constructor(private http:HttpClient, public dialog: MatDialog){}
 
   
 getPosts() {
@@ -29,5 +31,16 @@ onSubmit() {
     this.newPost = { name:'', imageUrl:'',postData:'',timeDate: ''}; // Reset the new post object
   });
 
+}
+
+openPopup(): void {
+  const dialogRef = this.dialog.open(ImageDisplayComponent, {
+    width: '250px', // Set the width of the pop-up
+  });
+
+  // You can subscribe to the afterClosed event to get data when the pop-up is closed
+  dialogRef.afterClosed().subscribe(result => {
+    console.log(`Dialog result: ${result}`);
+  });
 }
 }
