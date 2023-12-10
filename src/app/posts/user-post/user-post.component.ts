@@ -24,6 +24,8 @@ export class UserPostComponent {
   posts: any[] = [];
   events: any[] = [];
   currentDate: Date = new Date();
+  newComment: any;
+  likes: any=0;
 
 
   constructor(private service: EventService, private http:HttpClient) {
@@ -53,12 +55,41 @@ export class UserPostComponent {
 
  
   ngOnInit() {
+    this.getLikes();
     this.getPosts();
   }
 
   getPosts() {
     this.http.get<any>('http://localhost:3000/posts').subscribe(response => {
       this.posts = response.reverse();
+    });
+  }
+
+
+
+  getLikes() {
+    this.http.get<any>('http://localhost:3000/posts/likes').subscribe(data => {
+      this.likes = data.likes;
+    });
+  }
+
+  incrementLikes() {
+    this.http.patch('http://localhost:3000/posts/likes', { likes: this.likes + 1 }).subscribe(() => {
+      this.getLikes();
+    });
+  }
+
+  addComment(post: any, newComment: any) {
+    // Assign a unique ID to the new comment
+    newComment.id = post.comments.length + 1;
+    newComment.date = new Date().toISOString();
+    
+    // Add the new comment to the post's comments array
+    post.comments.push(newComment);
+
+    // Update the comments on the server
+    this.http.patch(`http://localhost:3000/posts/${post.id}`, { comments: post.comments }).subscribe(() => {
+      this.getPosts();
     });
   }
 

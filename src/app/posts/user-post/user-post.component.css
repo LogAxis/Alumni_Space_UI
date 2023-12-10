@@ -7,12 +7,17 @@ body {
   
   .user-post {
     background-color: #1e1e1e;
-    padding: 10px;
+    padding: 30px;
     margin: 10px;
     border-radius: 5px;
   }
   
-  
+  .space{
+
+    padding-bottom:50px;
+    
+  }
+
   .user-profile {
     display: flex;
     align-items: center;
@@ -48,6 +53,16 @@ body {
   .post-text {
     font-size: 16px;
     line-height: 1.6;
+  }
+
+  .post-button {
+    background-color: #3498db;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
   }
   
   

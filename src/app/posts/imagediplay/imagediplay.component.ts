@@ -26,9 +26,10 @@ export class ImagediplayComponent {
   
   postEvent() {
     const event = {
-      title: this.eventForm.get('eventTitle')?.value,
+      name: "Logaxis",
       description: this.eventForm.get('eventDescription')?.value,
       image: this.imageFile,
+      date: this.getTimeDifference(this.currentDate)
     };
    // this.service.addEvent(event);
     this.eventForm.reset();

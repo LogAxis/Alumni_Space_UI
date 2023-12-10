@@ -16,7 +16,7 @@ export class ImageDisplayComponent {
   eventForm!: FormGroup;
   imageFile: File | null = null;
   showModal = false;
-  events: any[] = [];
+  events: any[] = []; 
   currentDate: Date = new Date();
   
 
@@ -34,9 +34,10 @@ export class ImageDisplayComponent {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
     const event:any = {
-      title: this.eventForm.get('eventTitle')?.value,
+      name: "Logaxis",
       description: this.eventForm.get('eventDescription')?.value,
       image: this.imageFile,
+      date: this.getTimeDifference(this.currentDate)
 
     };
     this.http.post<any>('http://localhost:3000/posts',event,{headers}).subscribe(response =>{
@@ -46,7 +47,7 @@ export class ImageDisplayComponent {
     this.imageFile = null;
     this.showModal = true;
     })
-
+    window.location.reload();
   }
 
   closeModal() {
@@ -122,3 +123,66 @@ export class ImageDisplayComponent {
  
 }
  
+
+/* 
+ onPost() {
+    const headers = new HttpHeaders();
+    headers.append('Content-Type', 'multipart/form-data');
+
+    const formData = new FormData();
+    formData.append('name', 'Logaxis');
+    formData.append('description', this.eventForm.get('eventDescription')?.value);
+    formData.append('image', this.imageFile);
+
+    this.http.post<any>('http://localhost:3000/posts', formData, { headers }).subscribe(response => {
+      this.service.getEvents();
+      this.service.addEvent(response); // Assuming the server returns the saved event
+      this.eventForm.reset();
+      this.showModal = true;
+    });
+    window.location.reload();
+  }
+  */
+
+  //this is to be on the server side to handle the images
+
+  /*(first) npm install multer
+
+  (than)
+  // server.js (or your server file)
+
+const express = require('express');
+const multer = require('multer');
+const cors = require('cors');
+
+const app = express();
+app.use(cors());
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'uploads/'); // Specify the directory where you want to save the images
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + '-' + file.originalname);
+  },
+});
+
+const upload = multer({ storage: storage });
+
+app.post('/posts', upload.single('image'), (req, res) => {
+  const { name, description, date } = req.body;
+  const imageUrl = req.file.path; // Get the file path where the image is saved
+
+  // Assuming you save this information to a database or handle it as needed
+  const newEvent = { name, description, imageUrl, date };
+
+  // Send back the saved event or the appropriate response
+  res.json(newEvent);
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
+
+*/

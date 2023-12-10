@@ -14,7 +14,9 @@
          
      </div>-->
     <ul>
+        
     <li *ngFor="let post of posts">
+        <div class="space">
         <div class="user-profile">
             <img class="user-avatar" src={{post.avater}} alt="User Avatar">
             <div class="user-name">{{post.name}}</div>
@@ -27,12 +29,16 @@
             <!-- You can add other elements like images, videos, etc. -->
         </div>
         <div class="date-time" >
-          <p>{{ post.dateTime }}</p>  
+          <p>{{ post.dateTime }} {{post.date}}</p>  
           </div>
-    
-    
+          <div>
+            <p>{{ likes }} Likes</p>
+            <button class="post-button" (click)="incrementLikes()">Like</button>
+          </div>
+  
+        </div>
     </li>
-   
+        
     </ul>
     
     </div>
