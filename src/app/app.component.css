@@ -17613,6 +17613,13 @@ a.badge:hover {
 [data-bs-theme=dark] .light-mode-item {
   display: none !important;
 }
+.feed{
 
+  margin-left: 32%;
+  width: 50%;
+  margin-bottom: 200%;
+  transform: translateY(-30%);
+
+}
 /*User CSS*/
 /*# sourceMappingURL=style.css.map */
