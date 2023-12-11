@@ -478,12 +478,6 @@ select:disabled {
   display: none !important;
 }
 
-button,
-[type=button],
-[type=reset],
-[type=submit] {
-  -webkit-appearance: button;
-}
 button:not(:disabled),
 [type=button]:not(:disabled),
 [type=reset]:not(:disabled),
@@ -538,10 +532,6 @@ legend + * {
   height: auto;
 }
 
-[type=search] {
-  outline-offset: -2px;
-  -webkit-appearance: textfield;
-}
 
 /* rtl:raw:
 [type="tel"],
@@ -564,10 +554,7 @@ legend + * {
   -webkit-appearance: button;
 }
 
-::file-selector-button {
-  font: inherit;
-  -webkit-appearance: button;
-}
+
 
 output {
   display: inline-block;
@@ -17618,7 +17605,7 @@ a.badge:hover {
   margin-left: 32%;
   width: 50%;
   margin-bottom: 200%;
-  transform: translateY(-30%);
+  transform: translateY(-50%);
 
 }
 /*User CSS*/
